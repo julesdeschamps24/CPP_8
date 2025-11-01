@@ -36,6 +36,18 @@ int main()
         } catch (std::exception & e) {
             std::cerr << e.what() << std::endl;
         }
+        std::cout << std::endl;
+    }
+    {
+        int sp_size = 10001;
+        std::cout << "More than 10 000 numbers: " << std::endl;
+        std::srand(std::time(NULL));
+        Span sp(sp_size);
+
+        for (int i = 0; i < sp_size; i++)
+            sp.addNumber(std::rand() % UINT_MAX);
+        std::cout << "Shortest span: " <<sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
     return (0);
 }
