@@ -17,6 +17,20 @@ class Span
         ~Span();
 
         void addNumber(int nb);
+        template <typename It>
+        void addRange(It begin, It end) {
+            std::vector<int> tmp;
+
+            for (It i = begin; i != end; i++) {
+                tmp.push_back(*i);
+            }
+            
+            if(_cont.size() + tmp.size() > _size)
+                throw std::length_error("Error: Span is full");
+            
+            _cont.insert(_cont.end(), tmp.begin(), tmp.end());
+        }
+
         int shortestSpan();
         int longestSpan();
     private:

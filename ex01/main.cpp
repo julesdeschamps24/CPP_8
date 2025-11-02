@@ -48,6 +48,25 @@ int main()
             sp.addNumber(std::rand() % UINT_MAX);
         std::cout << "Shortest span: " <<sp.shortestSpan() << std::endl;
         std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+        std::cout << std::endl;
+    }
+    {
+        std::cout << "Add range : " << std::endl;
+        Span sp(10);
+
+        std::vector<int> vec;
+        vec.push_back(0);
+        vec.push_back(43);
+        vec.push_back(9);
+        vec.push_back(2);
+        vec.push_back(5);
+        vec.push_back(3);
+        vec.push_back(69);
+        sp.addRange(vec.begin(), vec.end());
+
+        std::cout << "Shortest span: " <<sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+
     }
     return (0);
 }
